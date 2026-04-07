@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookContext } from '../../context/BookContext';
+import WishListCard from './WishListCard';
 
 const WishList = () => {
+
+    const { wishListBooks } = useContext(BookContext);
     return (
         <div>
-            <h3>WISH list</h3>
+            {
+                wishListBooks.map(book => <WishListCard key={book.bookId} book={book}></WishListCard>)
+            }
         </div>
     );
 };
