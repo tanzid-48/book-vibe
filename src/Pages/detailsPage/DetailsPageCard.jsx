@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookContext } from '../../context/BookContext';
+
+
 
 const DetailsPageCard = ({ expectedBook }) => {
-    if (!expectedBook) return <p className="text-center mt-20 text-gray-400">Book not found.</p>;
 
+    const { handleMarkAsRead } = useContext(BookContext);
+    if (!expectedBook)
+        return <p className="text-center mt-20 text-gray-400">Book not found.</p>;
     return (
         <div className="flex flex-col lg:flex-row gap-10">
 
@@ -59,8 +64,8 @@ const DetailsPageCard = ({ expectedBook }) => {
                 </div>
 
                 <div className="flex gap-3 mt-3">
-                    <button className="btn btn-outline px-8">Read</button>
-                    <button className="btn bg-teal-400 text-white px-8 border-none hover:bg-teal-500">Wishlist</button>
+                    <button onClick={() => handleMarkAsRead(expectedBook)} className="btn btn-outline px-8 "> Mark As Read</button>
+                    <button className="btn bg-teal-400 text-white px-8 border-none hover:bg-teal-500"> Add To Wishlist</button>
                 </div>
             </div>
 

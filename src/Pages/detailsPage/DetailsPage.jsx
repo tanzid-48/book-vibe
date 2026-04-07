@@ -6,11 +6,10 @@ const DetailsPage = () => {
     const { bookId } = useParams();
 
     const books = useLoaderData();
-    console.log("all books", books);
+    // console.log("all books", books);
     const expectedBook = books.find((book) => book.bookId == bookId);
-    console.log('hell', expectedBook);
-
-
+    // console.log('hell', expectedBook);
+    
     return (
 
      <div className="w-11/12 md:w-10/12 lg:w-9/12 mx-auto my-10">
