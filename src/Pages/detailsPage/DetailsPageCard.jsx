@@ -4,8 +4,9 @@ import { BookContext } from '../../context/BookContext';
 
 
 const DetailsPageCard = ({ expectedBook }) => {
-
+ 
     const { handleMarkAsRead } = useContext(BookContext);
+    const {handleWishListBooks} = useContext(BookContext);
     if (!expectedBook)
         return <p className="text-center mt-20 text-gray-400">Book not found.</p>;
     return (
@@ -65,7 +66,7 @@ const DetailsPageCard = ({ expectedBook }) => {
 
                 <div className="flex gap-3 mt-3">
                     <button onClick={() => handleMarkAsRead(expectedBook)} className="btn btn-outline px-8 "> Mark As Read</button>
-                    <button className="btn bg-teal-400 text-white px-8 border-none hover:bg-teal-500"> Add To Wishlist</button>
+                    <button onClick={() => handleWishListBooks(expectedBook)} className="btn bg-teal-400 text-white px-8 border-none hover:bg-teal-500"> Add To Wishlist</button>
                 </div>
             </div>
 
