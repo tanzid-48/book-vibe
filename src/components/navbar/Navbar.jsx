@@ -34,21 +34,11 @@ const Navbar = () => {
                     Pages To Read
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/amni"
-                    className={({ isActive }) =>
-                        `font-medium ${isActive ? 'text-success font-semibold' : 'hover:text-success'}`
-                    }
-                >
-                    Amni
-                </NavLink>
-            </li>
         </>
     );
-
     return (
-        <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+       <nav className='bg-base-100 shadow-sm '>
+         <div className=" navbar sticky top-0 z-50 w-11/12 mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div
@@ -95,6 +85,7 @@ const Navbar = () => {
                 <button className="btn btn-accent btn-sm md:btn-md text-white">Sing Up</button>
             </div>
         </div>
+       </nav>
     );
 };
 
