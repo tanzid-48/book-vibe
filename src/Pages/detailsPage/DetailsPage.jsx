@@ -1,22 +1,24 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useLoaderData, useParams } from 'react-router';
+import DetailsPageCard from './DetailsPageCard';
 
 const DetailsPage = () => {
-    const {bookId} = useParams();
-    
-    return (
-        <div>
-  <div className="w-11/12 md:w-10/12 lg:w-9/12 mx-auto my-10">
-            <h3 className="text-3xl font-bold">
-                Details Page
-            </h3>
+    const { bookId } = useParams();
 
-            <p className="mt-4 text-lg">
-                Book ID: {bookId}
-            </p>
+    const books = useLoaderData();
+    console.log("all books", books);
+    const expectedBook = books.find((book) => book.bookId == bookId);
+    console.log('hell', expectedBook);
+
+
+    return (
+
+     <div className="w-11/12 md:w-10/12 lg:w-9/12 mx-auto my-10">
+       
+        <DetailsPageCard expectedBook={expectedBook}  ></DetailsPageCard> 
         </div>
-        
-        </div>
+
+
     );
 };
 
