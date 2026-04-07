@@ -13,7 +13,7 @@ export const router = createBrowserRouter(
      Component: MainLayout,
      children: [
       {index: true, Component: HomePage},
-      {path:"detailsPage" ,Component: DetailsPage},
+      {path:"detailsPage/:bookId" ,Component: DetailsPage},
       {path: "listedBooks",Component: 
         ListedBooks},
       {path:"filterPage", Component: FilterPage},
