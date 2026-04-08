@@ -16,9 +16,6 @@ const ReadList = ({ sortingType }) => {
         }
     }, [sortingType])
 
-
-
-
     return (
         <div>
             {
