@@ -2,9 +2,16 @@ import React, { useContext } from 'react';
 import { BookContext } from '../../context/BookContext';
 import WishListCard from './WishListCard';
 
-const WishList = () => {
+const WishList = ({sortingType}) => {
 
     const { wishListBooks } = useContext(BookContext);
+
+    const sortedBooks = [...wishListBooks].sort((a, b) => {
+        if (sortingType === 'pages') return b.totalPages - a.totalPages;
+        if (sortingType === 'rating') return b.rating - a.rating;
+        return 0;
+    });
+
     return (
      <div>
     {
@@ -17,7 +24,7 @@ const WishList = () => {
             Books you mark as "Wish List" will appear here.
         </p>
       </div>
-        ) : ( wishListBooks.map(book => <WishListCard key={book.bookId} book={book}></WishListCard>))
+        ) : ( sortedBooks.map(book => <WishListCard key={book.bookId} book={book}></WishListCard>))
 
     }
         </div>

@@ -5,13 +5,7 @@ import ReadListCard from './ReadListCard';
 const ReadList = ({ sortingType }) => {
 
     const { storedBooks, setStoredBooks } = useContext(BookContext);
-
-    //  const sortedBooks = [...storedBooks].sort((a, b) => {
-    //     if (sortingType === 'pages') return b.totalPages - a.totalPages;
-    //     if (sortingType === 'rating') return b.rating - a.rating;
-    //     return 0;
-    // });
-
+    
     useEffect(() => {
         if (sortingType) {
             if (sortingType === 'pages') {
