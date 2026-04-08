@@ -1,10 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BookContext } from '../../context/BookContext';
 import ReadListCard from './ReadListCard';
 
-const ReadList = () => {
+const ReadList = ({ sortingType }) => {
 
-    const { storedBooks } = useContext(BookContext);
+    const { storedBooks, setStoredBooks } = useContext(BookContext);
+
+    //  const sortedBooks = [...storedBooks].sort((a, b) => {
+    //     if (sortingType === 'pages') return b.totalPages - a.totalPages;
+    //     if (sortingType === 'rating') return b.rating - a.rating;
+    //     return 0;
+    // });
+
+    useEffect(() => {
+        if (sortingType) {
+            if (sortingType === 'pages') {
+                setStoredBooks(prev => [...prev].sort((a, b) => b.totalPages - a.totalPages));
+            } else if (sortingType === 'rating') {
+                setStoredBooks(prev => [...prev].sort((a, b) => b.rating - a.rating));
+            }
+        }
+    }, [sortingType])
+
+
+
 
     return (
         <div>
