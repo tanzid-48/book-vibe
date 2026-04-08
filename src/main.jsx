@@ -6,7 +6,6 @@ import { RouterProvider } from 'react-router'
 import BookProvider from './context/BookProvider.jsx'
 import { ToastContainer } from 'react-toastify'
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
