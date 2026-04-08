@@ -5,6 +5,7 @@ import DetailsPage from "../Pages/detailsPage/DetailsPage";
 import FilterPage from "../Pages/filterPage/FilterPage";
 import ErrorMessage from "./ErrorMassage";
 import ListedBooks from "../components/listedBooks/ListedBooks";
+import CustomBarChart from "../Pages/BarChart/CustomBarChart ";
 
 export const router = createBrowserRouter(
   [
@@ -18,9 +19,11 @@ export const router = createBrowserRouter(
         loader: () => fetch("/booksData.json")
       },
       {path: "listedBooks",Component: 
-        ListedBooks},
-      {path:"filterPage", Component: FilterPage},
-
+      ListedBooks},
+      {path:"filterPage",Component:
+        CustomBarChart
+      }
+    
      ],
       errorElement: <ErrorMessage />,
     },
